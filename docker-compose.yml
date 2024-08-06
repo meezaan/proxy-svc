@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DEBUG: "true" # Any value equals true. To turn off debug mode, comment or delete this env var.
+      PROXY_URL: "https://ilm.islamic.network/items/quotes/1"
+    ports:
+      - "80:8080"
+    volumes:
+      - .:/var/www
+    privileged: true
+    container_name: api
+
